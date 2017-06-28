@@ -21,9 +21,40 @@ public class Customer {
 
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "email")
 	private String email;
+
+	@Column(name = "salary")
+	private int salary;
+
+	@Column(name = "bruto_salary")
+	private int brutoSalary;
+	
+	@Column(name = "jib")
+	private int jib;
+	
+	@Column(name="phone_number")
+	private String 	phoneNumber;
+
+	public Customer() {
+
+	}
+	public int getBrutoSalary() {
+		return brutoSalary;
+	}
+
+	public void setBrutoSalary(int brutoSalary) {
+		this.brutoSalary = brutoSalary;
+	}
+
+	public int getJib() {
+		return jib;
+	}
+
+	public void setJib(int jib) {
+		this.jib = jib;
+	}
 
 	public String getEmail() {
 		return email;
@@ -33,9 +64,7 @@ public class Customer {
 		this.email = email;
 	}
 
-	public Customer() {
 
-	}
 	public int getId() {
 		return Id;
 	}
@@ -60,9 +89,25 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer [Id=" + Id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+
+	public int getSalary() {
+		return salary;
 	}
 
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [Id=" + Id + ", firstName=" + firstName + ", lastName=" + lastName + "salary" + salary + "]";
+	}
 }

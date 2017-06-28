@@ -21,7 +21,7 @@ public class CustomerDAOImp implements CustomerDAO {
 		// get the curenty
 		Session sesion = sessionFactory.getCurrentSession();
 
-		Query<Customer> query = sesion.createQuery("from Customer order by email", Customer.class);
+		Query<Customer> query = sesion.createQuery("from Customer order by lastName", Customer.class);
 
 		List<Customer> customers = query.getResultList();
 
@@ -49,5 +49,15 @@ public class CustomerDAOImp implements CustomerDAO {
 		query.setParameter("customerId", id);
 		query.executeUpdate();
 
+	}
+
+	@Override
+	public List<Customer> getCustomersBySalary() {
+		Session sesion = sessionFactory.getCurrentSession();
+
+		Query<Customer> query = sesion.createQuery("from Customer order by salary", Customer.class);
+
+		List<Customer> customers = query.getResultList();
+		return customers;
 	}
 }

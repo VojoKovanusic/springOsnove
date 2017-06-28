@@ -15,16 +15,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.luv2code.springdemo.entity.Customer;
 import com.luv2code.springdemo.service.CustomerService;
 
-@Controller
+@org.springframework.stereotype.Controller
 @RequestMapping("/customer")
 public class CustomerController {
+	
+	
 	@Autowired
 	private CustomerService customerService;
 
+	
+	
 	@GetMapping("/list")
 	public String listoOfCustomers(Model model) {
 
 		List<Customer> listCustomers = customerService.getCustomers();
+		model.addAttribute("customers", listCustomers);
+
+		return "list-customer";
+	}
+	@GetMapping("/sortBySalary")
+	public String listoOfCustomersBySalary(Model model) {
+
+		List<Customer> listCustomers = customerService.getCustomersBySalary();
 		model.addAttribute("customers", listCustomers);
 
 		return "list-customer";

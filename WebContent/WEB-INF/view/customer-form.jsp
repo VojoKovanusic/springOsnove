@@ -11,16 +11,16 @@
 	href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 
 </head>
-<body bgcolor="red">
-	<div id="wraper">
+<body bgcolor=#0099ff>
+	<div id="wraper" >
 
-		<div id="header">
-			<h2>ADD CUSTOMER.....</h2>
+		<div id="header" >
+			<h2> ADD CUSTOMER:</h2>
 		</div>
 	</div>
 
 	<div id="container">
-		<h3>Fill blank fields:</h3>
+		<h6>Fill blank fields:</h6>
 		<form:form action="saveCustomer" modelAttribute="customer"
 			method="POST">
 			<!-- potrebno je da asociate ovaj podatak sasa customer id -->
@@ -42,6 +42,26 @@
 						<td><form:input path="email" /></td>
 
 					</tr>
+					<tr>
+						<td><label>Salary:</label></td>
+						<td><form:input path="salary" /></td>
+
+					</tr>
+					<tr>
+						<td><label>Bruto Salary:</label></td>
+						<td><form:input path="brutoSalary" /></td>
+
+					</tr>
+					<tr>
+						<td><label>Jib:</label></td>
+						<td><form:input path="jib" /></td>
+
+					</tr>
+					<tr>
+						<td><label>Phone:</label></td>
+						<td><form:input path="phoneNumber" /></td>
+
+					</tr>
 
 					<tr>
 						<td><label></label></td>
@@ -58,7 +78,10 @@
 <!-- bec to customer list -->
 <div style="clear;both;"> </div >
 <p>
-
+ <input type="button" value="MAIN MENU"
+				onclick="window.location.href='list';return false;"
+				class="add-button" />
+				
 <a href="${pageContext.request.contextPath}/customer/list"> Back to list customer in DB</a>
 </p>
 	</div>

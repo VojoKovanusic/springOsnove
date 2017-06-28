@@ -10,21 +10,32 @@
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 </head>
-<body>
+<body bgcolor="#3399ff">
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2>CRM - Customer Relationship Manager </h2>
+			<p>in:list-customer.jsp</p>
 		</div>
 	</div>
 
 	<div id="container">
 
 		<div id="content">
-			<!-- dodavanje dugmeta  -->
+			<!-- dodavanj
+			e dugmeta  -->
 			<input type="button" value="Add customer"
 				onclick="window.location.href='showFormADD';return false;"
-				class="add-button" /> <br> <br>
+				class="add-button" />
+			
+				 <input type="button" value="Sort by: Salary"
+				onclick="window.location.href='sortBySalary';return false;"
+				class="add-button" />
+				
+				 <input type="button" value="Sort by: Last name"
+				onclick="window.location.href='list';return false;"
+				class="add-button" />
+				
 			<table>
 
 				<tr>
@@ -32,6 +43,10 @@
 					<th>First name:</th>
 					<th>Last Name:</th>
 					<th>Email:</th>
+					<th>Salary:</th>
+					<th>Bruto salary:</th>
+					<th>JIB:</th>
+					<th>Phone number:</th>
 					<th>Action</th>
                     
 
@@ -54,11 +69,15 @@
 						<td> ${tempCustomer.firstName} </td>
 						<td> ${tempCustomer.lastName} </td>
 						<td> ${tempCustomer.email} </td>
+						<td> ${tempCustomer.salary} </td>
+						<td> ${tempCustomer.brutoSalary} </td>
+						<td> ${tempCustomer.jib} </td>
+						<td> ${tempCustomer.phoneNumber} </td>
 						
 						<td>
 							<!-- display the update link -->
-							<a href="${updateLink}"> Update</a>
-							  | 
+							<a href="${updateLink}">Update</a>
+						
 							<a href="${deleteLink}"
 							onclick="if(!(confirm('Are you sure you wont to delete customrer?')))return false">Delete </a>
 						</td>
