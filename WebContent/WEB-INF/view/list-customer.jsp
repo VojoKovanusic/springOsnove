@@ -14,8 +14,8 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager </h2>
-			<p>in:list-customer.jsp</p>
+			<b>
+			            WELCOME TO TEST WEB APP</b>
 		</div>
 	</div>
 
@@ -44,12 +44,12 @@
 					<th>Last Name:</th>
 					<th>Email:</th>
 					<th>Salary:</th>
-					<th>Bruto salary:</th>
+					<th>Gross salary:</th>
 					<th>JIB:</th>
 					<th>Phone number:</th>
+					<th>Registration date:</th>
 					<th>Action</th>
                     
-
 				</tr>
 
 				<!-- loop over and print our customers -->
@@ -70,9 +70,10 @@
 						<td> ${tempCustomer.lastName} </td>
 						<td> ${tempCustomer.email} </td>
 						<td> ${tempCustomer.salary} </td>
-						<td> ${tempCustomer.brutoSalary} </td>
+						<td> ${tempCustomer.brutoSalary=tempCustomer.salary*1.17} </td>
 						<td> ${tempCustomer.jib} </td>
 						<td> ${tempCustomer.phoneNumber} </td>
+						<td> ${tempCustomer.registrationDate} </td>
 						
 						<td>
 							<!-- display the update link -->
@@ -92,16 +93,6 @@
 	
 	</div>
 	
-
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-

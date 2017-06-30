@@ -1,11 +1,19 @@
 package com.luv2code.springdemo.entity;
 
+import java.util.Date;
+import java.util.LinkedHashMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.sun.istack.internal.NotNull;
 
 @Entity
 @Table(name = "customer")
@@ -26,25 +34,37 @@ public class Customer {
 	private String email;
 
 	@Column(name = "salary")
-	private int salary;
+	private double salary;
 
 	@Column(name = "bruto_salary")
-	private int brutoSalary;
-	
+	private double brutoSalary;
+
+
 	@Column(name = "jib")
 	private int jib;
-	
-	@Column(name="phone_number")
-	private String 	phoneNumber;
+
+	@Column(name = "phone_number")
+	private String phoneNumber;
+
+	@Column(name = "register_date")
+	private Date registrationDate;
+
+	@Column(name = "country")
+	private String country;
+
+
 
 	public Customer() {
 
+		registrationDate = new Date();
+
 	}
-	public int getBrutoSalary() {
+
+	public double getBrutoSalary() {
 		return brutoSalary;
 	}
 
-	public void setBrutoSalary(int brutoSalary) {
+	public void setBrutoSalary(double brutoSalary) {
 		this.brutoSalary = brutoSalary;
 	}
 
@@ -63,7 +83,6 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 
 	public int getId() {
 		return Id;
@@ -89,12 +108,11 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-
-	public int getSalary() {
+	public double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(int salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
 	}
 
@@ -106,8 +124,20 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer [Id=" + Id + ", firstName=" + firstName + ", lastName=" + lastName + "salary" + salary + "]";
+	public Date getRegistrationDate() {
+		return registrationDate;
 	}
+
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+	public String getCountry() {
+		return country;
+	}
+	
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	
+
 }
