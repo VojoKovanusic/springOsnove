@@ -1,7 +1,6 @@
 package com.luv2code.springdemo.entity;
 
 import java.util.Date;
-import java.util.LinkedHashMap;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,9 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 @Entity
 @Table(name = "customer")
@@ -24,12 +27,24 @@ public class Customer {
 	@Column(name = "id")
 	private int Id;
 
+	@NotNull(message = "is required")
+	@Size(min = 1, message = "is required")
 	@Column(name = "first_name")
 	private String firstName;
 
+	@NotNull(message = "is required")
+	@Size(min = 1, message = "is required")
 	@Column(name = "last_name")
 	private String lastName;
 
+	@DateTimeFormat( pattern = "dd/MM/yyyy")
+	@NotNull
+	@Past(message="enter in format dd/MM/yyyy ")
+	@Column(name = "birthday")
+	private Date birthday;
+	
+	
+	@Email(message="enter valide email adress")
 	@Column(name = "email")
 	private String email;
 
@@ -47,12 +62,11 @@ public class Customer {
 	private String phoneNumber;
 
 	@Column(name = "register_date")
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date registrationDate;
 
-	@Column(name = "country")
-	private String country;
-
-
+	@Column(name = "team")
+	private String team;
 
 	public Customer() {
 
@@ -131,13 +145,20 @@ public class Customer {
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-	public String getCountry() {
-		return country;
-	}
-	
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
 
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
 }

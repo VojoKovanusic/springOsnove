@@ -8,7 +8,14 @@
 <!-- references our style sheet -->
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
-
+<style>table, th, td {
+    border: 1px solid black;
+    
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}</style>
 </head>
 <body bgcolor="#3399ff">
 
@@ -42,11 +49,13 @@
 
 					<th>First name:</th>
 					<th>Last Name:</th>
+					<th>birthday:</th>
 					<th>Email:</th>
 					<th>Salary:</th>
 					<th>Gross salary:</th>
 					<th>JIB:</th>
 					<th>Phone number:</th>
+					<th>Team:</th>
 					<th>Registration date:</th>
 					<th>Action</th>
                     
@@ -68,11 +77,13 @@
 					<tr>
 						<td> ${tempCustomer.firstName} </td>
 						<td> ${tempCustomer.lastName} </td>
+					<td> ${tempCustomer.birthday} </td>
 						<td> ${tempCustomer.email} </td>
 						<td> ${tempCustomer.salary} </td>
-						<td> ${tempCustomer.brutoSalary=tempCustomer.salary*1.17} </td>
+						<td> ${tempCustomer.brutoSalary=Math.round(tempCustomer.salary*1.17)} </td>
 						<td> ${tempCustomer.jib} </td>
 						<td> ${tempCustomer.phoneNumber} </td>
+						<td> ${tempCustomer.team} </td>
 						<td> ${tempCustomer.registrationDate} </td>
 						
 						<td>

@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Insert title here</title>
+<title>FIRIST WEB APP</title>
 
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
@@ -34,53 +34,76 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label>First name:</label></td>
-						<td><form:input path="firstName" /></td>
+						<td><label>Firist name(*):</label></td>
+						<td><form:input path="firstName" /> <form:errors
+								path="firstName" cssClass="erorKojiJaHocu" /></td>
 					</tr>
 					<tr>
-						<td><label>Last name:</label></td>
+						<td><label>Last name(*):</label></td>
 						<td><form:input path="lastName" /> <form:errors
 								path="lastName" cssClass="erorKojiJaHocu" /></td>
 					</tr>
 					<tr>
+						<td><label>Birthday:</label></td>
+						<td><form:input path="birthday" /> <form:errors
+								path="birthday" cssClass="erorKojiJaHocu" /></td>
+					</tr>
+					<tr>
 						<td><label>Email:</label></td>
-						<td><form:input path="email" /></td>
+						<td><form:input path="email" /> <form:errors path="email"
+								cssClass="erorKojiJaHocu" /></td>
 					</tr>
 					<tr>
 						<td><label>Salary:</label></td>
 						<td><form:input path="salary" /></td>
 					</tr>
-				
+
 					<tr>
 						<td><label>Jib:</label></td>
-						<td><form:input path="jib" /></td>
+						<td><form:input path="jib" /> <form:errors path="jib"
+								cssClass="erorKojiJaHocu" /></td>
 
 					</tr>
 					<tr>
 						<td><label>Phone:</label></td>
-						<td><form:input path="phoneNumber" /></td>
+						<td><form:input path="phoneNumber" /> </td>
 					</tr>
 
+					<tr>
+						<td><label>Select team</label></td>
+						<td><select name="team">
+								<option value="NONE">--- Select ---</option>
+								<option value="Team 1">1</option>
+								<option value="Team 2">2</option>
+								<option value="Team 3">3</option>
+								<option value="Team 4">4</option>
+								<option value="Team 5">5</option>
+						</select></td>
+					</tr>
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save!" class="save" /></td>
 					</tr>
+
 				</tbody>
 
 			</table>
+
+
+
 
 		</form:form>
 		<!-- bec to customer list -->
 		<div style=""></div>
 		<p>
-			<input type="button" value="MAIN MENU"
+			<input type="submit" value="MAIN MENU"
 				onclick="window.location.href='list';return false;"
 				class="add-button" /> <a
 				href="${pageContext.request.contextPath}/customer/list"> Back to
 				list customer in DB</a>
 		</p>
 	</div>
-	
+
 
 </body>
 </html>

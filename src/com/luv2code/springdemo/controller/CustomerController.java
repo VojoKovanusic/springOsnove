@@ -51,21 +51,16 @@ public class CustomerController {
 		return "customer-form";
 	}
 
-	/*@RequestMapping("/procesFormADD")
-	public String procesFormAdd(@Valid @ModelAttribute("customer") Customer customer, BindingResult binding) {
-
-		if (binding.hasErrors())
-			return "list-customer";
-		else
-			return "customer-form";
-	}*/
-
+	// za validaciju
 	@PostMapping("saveCustomer")
-	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
+	public String saveCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult binding) {
+		if (binding.hasErrors()) {
+			return "customer-form";
+		} else {
+			customerService.saveCustomer(customer);
 
-		customerService.saveCustomer(customer);
-
-		return "redirect:/customer/list";
+			return "redirect:/customer/list";
+		}
 	}
 
 	@GetMapping("/showFormForUpdate")
