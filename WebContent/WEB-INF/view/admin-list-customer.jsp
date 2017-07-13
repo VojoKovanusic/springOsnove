@@ -14,15 +14,17 @@
 }
 th, td {
     padding: 5px;
-    text-align: left;    
-}</style>
+    text-align: left;  
+      
+}erorKojiJaHocu
+</style>
 </head>
-<body bgcolor="#3399ff">
+<body bgcolor="#999966">
 
 	<div id="wrapper">
-		<div id="header">
-			<b>
-			            WELCOME TO TEST WEB APP</b>
+		<div id="header" align="center">
+			 
+          WELCOME TO ADMIN WEB APP 
 		</div>
 	</div>
 
@@ -39,8 +41,16 @@ th, td {
 				onclick="window.location.href='sortBySalary';return false;"
 				class="add-button" />
 				
-				 <input type="button" value="Sort by: Last name"
+				 <input id ="sortButton" type="button" value="Sort by: Last name"
 				onclick="window.location.href='list';return false;"
+				class="add-button" />
+				
+				<input type="button" value="Sort by Registration date"
+				onclick="window.location.href='sortByRegistrationDate';return false;"
+				class="add-button" />
+				
+				<input type="button" value="LOG OFF"
+				onclick="window.location.href='showFormloging';return false;"
 				class="add-button" />
 				
 			<table>
@@ -65,7 +75,7 @@ th, td {
 				<c:forEach var="tempCustomer" items="${customers}">
 				
 					<!-- construct an "UPDATE" link with customer id -->
-					<c:url var="updateLink" value="/customer/showFormForUpdate">
+					<c:url var="updateLink" value="/showFormForUpdate">
 						<c:param name="customerId" value="${tempCustomer.id}" />
 					</c:url>	
 					
@@ -85,7 +95,6 @@ th, td {
 						<td> ${tempCustomer.phoneNumber} </td>
 						<td> ${tempCustomer.team} </td>
 						<td> ${tempCustomer.registrationDate} </td>
-						
 						<td>
 							<!-- display the update link -->
 							<a href="${updateLink}">Update</a>

@@ -1,3 +1,4 @@
+
 package com.luv2code.springdemo.service;
 
 import java.util.List;
@@ -48,4 +49,13 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDAO.getCustomersBySalary();
 	}
 
+	@Override
+	public List<Customer> getCustomersByRegisterDate() {
+		// TODO Auto-generated method stub
+		return customerDAO.getCustomersByRegisterDate();
+	}
+
+ 
+
+	 
 }

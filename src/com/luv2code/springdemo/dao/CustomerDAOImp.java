@@ -1,5 +1,6 @@
 package com.luv2code.springdemo.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -11,8 +12,9 @@ import org.springframework.stereotype.Repository;
 import com.luv2code.springdemo.entity.Customer;
 
 @Repository
-public class CustomerDAOImp implements CustomerDAO {
+public class CustomerDAOImp implements CustomerDAO  {
 
+	 
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -21,7 +23,7 @@ public class CustomerDAOImp implements CustomerDAO {
 		// get the curenty
 		Session sesion = sessionFactory.getCurrentSession();
 
-		Query<Customer> query = sesion.createQuery("from Customer order by lastName", Customer.class);
+		Query<Customer> query = sesion.createQuery("from Customer order by lastName ", Customer.class);
 
 		List<Customer> customers = query.getResultList();
 
@@ -55,9 +57,23 @@ public class CustomerDAOImp implements CustomerDAO {
 	public List<Customer> getCustomersBySalary() {
 		Session sesion = sessionFactory.getCurrentSession();
 
-		Query<Customer> query = sesion.createQuery("from Customer order by salary", Customer.class);
+		Query<Customer> query = sesion.createQuery("from Customer order by salary desc", Customer.class);
 
 		List<Customer> customers = query.getResultList();
 		return customers;
 	}
+
+	@Override
+	public List<Customer> getCustomersByRegisterDate() {
+		Session sesion = sessionFactory.getCurrentSession();
+
+		Query<Customer> query = sesion.createQuery("from Customer order by registrationDate desc", Customer.class);
+
+		List<Customer> customers = query.getResultList();
+		return customers;
+	}
+
+ 
+
+ 
 }

@@ -15,4 +15,8 @@ public interface CustomerDAO {
 	public void deleteCustomer(int id);
 
 	public List<Customer> getCustomersBySalary();
+
+	public List<Customer> getCustomersByRegisterDate();
+
+	 
 }

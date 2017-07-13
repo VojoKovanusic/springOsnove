@@ -11,10 +11,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -37,14 +38,13 @@ public class Customer {
 	@Column(name = "last_name")
 	private String lastName;
 
-	@DateTimeFormat( pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@NotNull
-	@Past(message="enter in format dd/MM/yyyy ")
+	@Past(message = "enter in format dd/MM/yyyy ")
 	@Column(name = "birthday")
 	private Date birthday;
-	
-	
-	@Email(message="enter valide email adress")
+
+	@Email(message = "enter valide email adress")
 	@Column(name = "email")
 	private String email;
 
@@ -54,10 +54,11 @@ public class Customer {
 	@Column(name = "bruto_salary")
 	private double brutoSalary;
 
-
 	@Column(name = "jib")
-	private int jib;
-
+	private long jib;
+	
+	
+	@Size(max = 17, message = "max is 17 caracters")
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
@@ -82,11 +83,11 @@ public class Customer {
 		this.brutoSalary = brutoSalary;
 	}
 
-	public int getJib() {
+	public long getJib() {
 		return jib;
 	}
 
-	public void setJib(int jib) {
+	public void setJib(long jib) {
 		this.jib = jib;
 	}
 

@@ -16,5 +16,12 @@ public interface CustomerService {
 
 	public List<Customer> getCustomersBySalary();
 
+	public List<Customer> getCustomersByRegisterDate();
+
+ 
+ 
+	
+ 
+
 	 
 }

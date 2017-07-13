@@ -22,10 +22,10 @@ input {
 
 .save {
 	font-weight: bold;
-	width: 130px; 
-	padding: 5px 10px; 
-	margin-top: 30px;
-	background: #e6e6ff;
+	width: 200px; 
+	padding: 15px 20px; 
+	margin-top: 20px;
+	background: #c0c0c0;
 }
 
 table {   
@@ -34,11 +34,14 @@ table {
 	
 }
 
-tr:nth-child(even) {background: #99ff33}
-tr:nth-child(odd) {background: #99ff33}
+tr:nth-child(even) {background: gray}
+tr:nth-child(odd) {background: gray}
 
 tr {
 	border-style:none;
 	text-align:left;	
+}
+erorKojiJaHocu {
+	color: #ff8000
 }
 	

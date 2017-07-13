@@ -3,25 +3,22 @@
 <head>
 
 <title>FIRIST WEB APP</title>
-
+<style>.erorKojiJaHocu{
+	color: red;
+}</style>
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 
-<style>
-.erorKojiJaHocu {
-	color: red
-}
-</style>
 
 </head>
 <body bgcolor=#0099ff>
 	<div id="wraper">
 
-		<div id="header">
-			<b>ADD CUSTOMER:</b>
+		<div id="header" >
+			<b >ADD CUSTOMER:</b>
 		</div>
 	</div>
 
@@ -66,7 +63,8 @@
 					</tr>
 					<tr>
 						<td><label>Phone:</label></td>
-						<td><form:input path="phoneNumber" /> </td>
+						<td><form:input path="phoneNumber" />  <form:errors path="phoneNumber"
+								cssClass="erorKojiJaHocu" /></td>
 					</tr>
 
 					<tr>
