@@ -35,7 +35,7 @@ th, td {
 		 
 			
 				 <input type="button" value="Sort by: Salary"
-				onclick="window.location.href='sortBySalary/client';return false;"
+				onclick="window.location.href='sortBySalaryClient';return false;"
 				class="add-button" />
 				
 				 <input id ="sortButton" type="button" value="Sort by: Last name"
@@ -43,11 +43,11 @@ th, td {
 				class="add-button" />
 				
 				<input type="button" value="Sort by Registration date"
-				onclick="window.location.href='sortByRegistrationDate-client';return false;"
+				onclick="window.location.href='sortByRegistrationDateClient';return false;"
 				class="add-button" />	
 				
 				<input type="button" value="LOG OFF"
-				onclick="window.location.href='showFormloging';return false;"
+		onclick="window.location.href='index.jsp'"
 				class="add-button" />
 				
 			<table>

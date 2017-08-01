@@ -5,20 +5,19 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.luv2code.springdemo.entity.Loging;
 import com.luv2code.springdemo.entity.Customer;
+import com.luv2code.springdemo.entity.Loging;
 import com.luv2code.springdemo.service.CustomerService;
 
-@org.springframework.stereotype.Controller
-@RequestMapping("/")
+ @Controller
 public class CustomerController {
 
 	@Autowired
@@ -93,24 +92,5 @@ public class CustomerController {
 
 		return "redirect:/list";
 	}
-	// da posalje na klijentovu listu
-		@GetMapping("/clientByLastName")
-		public String listoCustomers(Model model,Loging admin) {
-
-			List<Customer> listCustomers = customerService.getCustomers();
-			model.addAttribute("customers", listCustomers);
-			
-				return "redirect:/client-list-customers";
-		}
-
-
-		//sortiranje po plati za klient
-		@GetMapping("/sortBySalary/client")
-		public String listoCustomersBySalary(Model model) {
-
-			List<Customer> listCustomers = customerService.getCustomersBySalary();
-			model.addAttribute("customers", listCustomers);
-		 
-			return "redirect:/client-list-customers";
-		}
+	
 }

@@ -12,9 +12,8 @@ import org.springframework.stereotype.Repository;
 import com.luv2code.springdemo.entity.Customer;
 
 @Repository
-public class CustomerDAOImp implements CustomerDAO  {
+public class CustomerDAOImp implements CustomerDAO {
 
-	 
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -23,7 +22,7 @@ public class CustomerDAOImp implements CustomerDAO  {
 		// get the curenty
 		Session sesion = sessionFactory.getCurrentSession();
 
-		Query<Customer> query = sesion.createQuery("from Customer order by lastName ", Customer.class);
+		Query<Customer> query = sesion.createQuery("from Customer order by lastName", Customer.class);
 
 		List<Customer> customers = query.getResultList();
 
@@ -46,7 +45,7 @@ public class CustomerDAOImp implements CustomerDAO  {
 	@Override
 	public void deleteCustomer(int id) {
 		Session session = sessionFactory.getCurrentSession();
- 
+
 		Query query = session.createQuery("delete from Customer where id=:customerId");
 		query.setParameter("customerId", id);
 		query.executeUpdate();
@@ -67,13 +66,10 @@ public class CustomerDAOImp implements CustomerDAO  {
 	public List<Customer> getCustomersByRegisterDate() {
 		Session sesion = sessionFactory.getCurrentSession();
 
-		Query<Customer> query = sesion.createQuery("from Customer order by registrationDate desc", Customer.class);
+		Query<Customer> query = sesion.createQuery("from Customer order by registrationDate", Customer.class);
 
 		List<Customer> customers = query.getResultList();
 		return customers;
 	}
 
- 
-
- 
 }

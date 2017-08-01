@@ -50,7 +50,7 @@ th, td {
 				class="add-button" />
 				
 				<input type="button" value="LOG OFF"
-				onclick="window.location.href='showFormloging';return false;"
+				onclick="window.location.href='index.jsp'"
 				class="add-button" />
 				
 			<table>
@@ -80,7 +80,7 @@ th, td {
 					</c:url>	
 					
 					<!-- construct an "DELETE" link with customer id -->
-					<c:url var="deleteLink" value="/customer/delete">
+					<c:url var="deleteLink" value="/delete">
 						<c:param name="customerId" value="${tempCustomer.id}" />
 					</c:url>					
 					

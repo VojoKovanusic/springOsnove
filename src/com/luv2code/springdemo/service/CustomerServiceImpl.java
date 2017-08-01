@@ -11,51 +11,49 @@ import com.luv2code.springdemo.dao.CustomerDAO;
 import com.luv2code.springdemo.entity.Customer;
 
 @Service
+@Transactional
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerDAO customerDAO;
 
 	@Override
-	@Transactional
+	
 	public List<Customer> getCustomers() {
 
 		return customerDAO.getCustomers();
 	}
 
 	@Override
-	@Transactional
+	
 	public void saveCustomer(Customer customer) {
 		customerDAO.saveCustomer(customer);
 	}
 
 	@Override
-	@Transactional
+	 
 	public Customer getCustomer(int id) {
 
 		return customerDAO.getCustomer(id);
 	}
 
 	@Override
-	@Transactional
+	
 	public void deleteCustomer(int id) {
 		customerDAO.deleteCustomer(id);
 	}
 
 	@Override
-	@Transactional
+	
 	public List<Customer> getCustomersBySalary() {
 		 
 		return customerDAO.getCustomersBySalary();
 	}
 
 	@Override
+	 
 	public List<Customer> getCustomersByRegisterDate() {
 		// TODO Auto-generated method stub
 		return customerDAO.getCustomersByRegisterDate();
 	}
-
- 
-
-	 
 }

@@ -8,16 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 @Entity
 @Table(name = "customer")
@@ -30,17 +29,19 @@ public class Customer {
 
 	@NotNull(message = "is required")
 	@Size(min = 1, message = "is required")
+	@Pattern(regexp="[A-z]")
 	@Column(name = "first_name")
 	private String firstName;
 
 	@NotNull(message = "is required")
 	@Size(min = 1, message = "is required")
+	@Pattern(regexp="[A-z]")
 	@Column(name = "last_name")
 	private String lastName;
 
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@NotNull
-	@Past(message = "enter in format dd/MM/yyyy ")
+	@NotNull(message="Please enter a date")
+	@DateTimeFormat(pattern="dd/MM/YY")
+	@Past (message="Only the past date is valid")
 	@Column(name = "birthday")
 	private Date birthday;
 
@@ -48,6 +49,7 @@ public class Customer {
 	@Column(name = "email")
 	private String email;
 
+	@NumberFormat(style=Style.NUMBER)
 	@Column(name = "salary")
 	private double salary;
 
